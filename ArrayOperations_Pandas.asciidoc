@@ -1,0 +1,529 @@
++*In[1]:*+
+[source, ipython3]
+----
+#Numpy operations
+----
+
+
++*In[2]:*+
+[source, ipython3]
+----
+#Array with Array
+#Array with scalar
+#Universal Array functions
+----
+
+
++*In[3]:*+
+[source, ipython3]
+----
+import numpy as np
+arr = np.arange(0,11)
+----
+
+
++*In[4]:*+
+[source, ipython3]
+----
+arr
+----
+
+
++*Out[4]:*+
+----array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10])----
+
+
++*In[5]:*+
+[source, ipython3]
+----
+arr+arr
+----
+
+
++*Out[5]:*+
+----array([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18, 20])----
+
+
++*In[6]:*+
+[source, ipython3]
+----
+arr - arr
+----
+
+
++*Out[6]:*+
+----array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])----
+
+
++*In[7]:*+
+[source, ipython3]
+----
+arr * arr
+----
+
+
++*Out[7]:*+
+----array([  0,   1,   4,   9,  16,  25,  36,  49,  64,  81, 100])----
+
+
++*In[8]:*+
+[source, ipython3]
+----
+arr+100
+----
+
+
++*Out[8]:*+
+----array([100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110])----
+
+
++*In[9]:*+
+[source, ipython3]
+----
+arr * 100
+----
+
+
++*Out[9]:*+
+----array([   0,  100,  200,  300,  400,  500,  600,  700,  800,  900, 1000])----
+
+
++*In[10]:*+
+[source, ipython3]
+----
+arr - 100
+----
+
+
++*Out[10]:*+
+----array([-100,  -99,  -98,  -97,  -96,  -95,  -94,  -93,  -92,  -91,  -90])----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+1/0
+----
+
+
++*Out[11]:*+
+----
+
+    ---------------------------------------------------------------------------
+
+    ZeroDivisionError                         Traceback (most recent call last)
+
+    <ipython-input-11-9e1622b385b6> in <module>
+    ----> 1 1/0
+    
+
+    ZeroDivisionError: division by zero
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+arr/arr
+----
+
+
++*In[13]:*+
+[source, ipython3]
+----
+# nan --  no object
+----
+
+
+
+
++*In[14]:*+
+[source, ipython3]
+----
+1/arr
+----
+
+
++*Out[14]:*+
+----
+<ipython-input-14-016353831300>:1: RuntimeWarning: divide by zero encountered in true_divide
+  1/arr
+array([       inf, 1.        , 0.5       , 0.33333333, 0.25      ,
+       0.2       , 0.16666667, 0.14285714, 0.125     , 0.11111111,
+       0.1       ])----
+
+
++*In[15]:*+
+[source, ipython3]
+----
+arr**2
+----
+
+
++*Out[15]:*+
+----array([  0,   1,   4,   9,  16,  25,  36,  49,  64,  81, 100])----
+
+
++*In[16]:*+
+[source, ipython3]
+----
+np.sqrt(arr)
+----
+
+
++*Out[16]:*+
+----array([0.        , 1.        , 1.41421356, 1.73205081, 2.        ,
+       2.23606798, 2.44948974, 2.64575131, 2.82842712, 3.        ,
+       3.16227766])----
+
+
++*In[17]:*+
+[source, ipython3]
+----
+np.exp(arr)
+----
+
+
++*Out[17]:*+
+----array([1.00000000e+00, 2.71828183e+00, 7.38905610e+00, 2.00855369e+01,
+       5.45981500e+01, 1.48413159e+02, 4.03428793e+02, 1.09663316e+03,
+       2.98095799e+03, 8.10308393e+03, 2.20264658e+04])----
+
+
++*In[18]:*+
+[source, ipython3]
+----
+np.max(arr)
+----
+
+
++*Out[18]:*+
+----10----
+
+
++*In[19]:*+
+[source, ipython3]
+----
+arr.max()
+----
+
+
++*Out[19]:*+
+----10----
+
+
++*In[20]:*+
+[source, ipython3]
+----
+np.sin(arr)
+----
+
+
++*Out[20]:*+
+----array([ 0.        ,  0.84147098,  0.90929743,  0.14112001, -0.7568025 ,
+       -0.95892427, -0.2794155 ,  0.6569866 ,  0.98935825,  0.41211849,
+       -0.54402111])----
+
+
++*In[21]:*+
+[source, ipython3]
+----
+np.log(arr)
+----
+
+
++*Out[21]:*+
+----
+<ipython-input-21-a67b4ae04e95>:1: RuntimeWarning: divide by zero encountered in log
+  np.log(arr)
+array([      -inf, 0.        , 0.69314718, 1.09861229, 1.38629436,
+       1.60943791, 1.79175947, 1.94591015, 2.07944154, 2.19722458,
+       2.30258509])----
+
+
++*In[22]:*+
+[source, ipython3]
+----
+#Introduction to Pandas
+# Open source library built on top of Numpy
+# Fast analysis and data cleaning and preparation
+# Excel in performance and productively
+# Built in visualization features
+# data with Wide variety of sources
+----
+
+
++*In[23]:*+
+[source, ipython3]
+----
+# conda/pip install pandas
+----
+
+
++*In[24]:*+
+[source, ipython3]
+----
+# Pandas Series
+----
+
+
++*In[25]:*+
+[source, ipython3]
+----
+import numpy as np
+import pandas as pd
+----
+
+
++*In[26]:*+
+[source, ipython3]
+----
+labels=['a','b','c']
+my_data=[10,20,30]
+arr=np.array(my_data)
+d = {'a':10,'b':20,'c':30}
+----
+
+
++*In[27]:*+
+[source, ipython3]
+----
+labels
+
+----
+
+
++*Out[27]:*+
+----['a', 'b', 'c']----
+
+
++*In[28]:*+
+[source, ipython3]
+----
+my_data
+----
+
+
++*Out[28]:*+
+----[10, 20, 30]----
+
+
++*In[29]:*+
+[source, ipython3]
+----
+d
+----
+
+
++*Out[29]:*+
+----{'a': 10, 'b': 20, 'c': 30}----
+
+
++*In[30]:*+
+[source, ipython3]
+----
+pd.Series(data=my_data)
+----
+
+
++*Out[30]:*+
+----0    10
+1    20
+2    30
+dtype: int64----
+
+
++*In[31]:*+
+[source, ipython3]
+----
+arr
+----
+
+
++*Out[31]:*+
+----array([10, 20, 30])----
+
+
++*In[32]:*+
+[source, ipython3]
+----
+pd.Series(data=my_data,index=labels)
+----
+
+
++*Out[32]:*+
+----a    10
+b    20
+c    30
+dtype: int64----
+
+
++*In[33]:*+
+[source, ipython3]
+----
+pd.Series(arr,labels)
+----
+
+
++*Out[33]:*+
+----a    10
+b    20
+c    30
+dtype: int64----
+
+
++*In[34]:*+
+[source, ipython3]
+----
+pd.Series(d)
+----
+
+
++*Out[34]:*+
+----a    10
+b    20
+c    30
+dtype: int64----
+
+
++*In[35]:*+
+[source, ipython3]
+----
+d
+----
+
+
++*Out[35]:*+
+----{'a': 10, 'b': 20, 'c': 30}----
+
+
++*In[36]:*+
+[source, ipython3]
+----
+pd.Series(data=labels)
+----
+
+
++*Out[36]:*+
+----0    a
+1    b
+2    c
+dtype: object----
+
+
++*In[41]:*+
+[source, ipython3]
+----
+Ser1=pd.Series([1,2,3,4],['India','US','China','Germany'])
+----
+
+
++*In[42]:*+
+[source, ipython3]
+----
+Ser1
+----
+
+
++*Out[42]:*+
+----India      1
+US         2
+China      3
+Germany    4
+dtype: int64----
+
+
++*In[43]:*+
+[source, ipython3]
+----
+Ser2=pd.Series([1,2,5,4],['India','US','Italy','Germany'])
+----
+
+
++*In[44]:*+
+[source, ipython3]
+----
+Ser2
+----
+
+
++*Out[44]:*+
+----India      1
+US         2
+Italy      5
+Germany    4
+dtype: int64----
+
+
++*In[46]:*+
+[source, ipython3]
+----
+Ser1['US']
+----
+
+
++*Out[46]:*+
+----2----
+
+
++*In[47]:*+
+[source, ipython3]
+----
+Ser1+Ser2
+----
+
+
++*Out[47]:*+
+----China      NaN
+Germany    8.0
+India      2.0
+Italy      NaN
+US         4.0
+dtype: float64----
+
+
++*In[48]:*+
+[source, ipython3]
+----
+Ser3=pd.Series(data=labels)
+----
+
+
++*In[49]:*+
+[source, ipython3]
+----
+Ser3
+----
+
+
++*Out[49]:*+
+----0    a
+1    b
+2    c
+dtype: object----
+
+
++*In[50]:*+
+[source, ipython3]
+----
+Ser3[2]
+----
+
+
++*Out[50]:*+
+----'c'----
+
+
++*In[51]:*+
+[source, ipython3]
+----
+#DataFrames
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
