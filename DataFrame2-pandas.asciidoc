@@ -1,0 +1,321 @@
++*In[1]:*+
+[source, ipython3]
+----
+import numpy as np
+import pandas as pd
+----
+
+
++*In[4]:*+
+[source, ipython3]
+----
+from numpy.random import randn
+df=pd.DataFrame(randn(5,4),['A','B','C','D','E'],['W','X','Y','Z'])
+----
+
+
++*In[5]:*+
+[source, ipython3]
+----
+df
+----
+
+
++*Out[5]:*+
+----
+[cols=",,,,",options="header",]
+|===
+| |W |X |Y |Z
+|A |-0.469724 |0.443672 |-1.009412 |0.118840
+|B |0.152000 |-1.015101 |0.292788 |-0.179682
+|C |-0.650724 |0.098453 |-2.513389 |-0.636284
+|D |2.248024 |0.481968 |-0.944033 |-0.107866
+|E |-0.590276 |0.964199 |-0.248336 |0.777561
+|===
+----
+
+
++*In[6]:*+
+[source, ipython3]
+----
+df.reset_index()
+----
+
+
++*Out[6]:*+
+----
+[cols=",,,,,",options="header",]
+|===
+| |index |W |X |Y |Z
+|0 |A |-0.469724 |0.443672 |-1.009412 |0.118840
+|1 |B |0.152000 |-1.015101 |0.292788 |-0.179682
+|2 |C |-0.650724 |0.098453 |-2.513389 |-0.636284
+|3 |D |2.248024 |0.481968 |-0.944033 |-0.107866
+|4 |E |-0.590276 |0.964199 |-0.248336 |0.777561
+|===
+----
+
+
++*In[7]:*+
+[source, ipython3]
+----
+df
+----
+
+
++*Out[7]:*+
+----
+[cols=",,,,",options="header",]
+|===
+| |W |X |Y |Z
+|A |-0.469724 |0.443672 |-1.009412 |0.118840
+|B |0.152000 |-1.015101 |0.292788 |-0.179682
+|C |-0.650724 |0.098453 |-2.513389 |-0.636284
+|D |2.248024 |0.481968 |-0.944033 |-0.107866
+|E |-0.590276 |0.964199 |-0.248336 |0.777561
+|===
+----
+
+
++*In[8]:*+
+[source, ipython3]
+----
+newind = 'CA NY WR OR CO'.split()
+----
+
+
++*In[9]:*+
+[source, ipython3]
+----
+newind
+----
+
+
++*Out[9]:*+
+----['CA', 'NY', 'WR', 'OR', 'CO']----
+
+
++*In[10]:*+
+[source, ipython3]
+----
+df['States']=newind
+----
+
+
++*In[11]:*+
+[source, ipython3]
+----
+df.set_index('States')
+----
+
+
++*Out[11]:*+
+----
+[cols=",,,,",options="header",]
+|===
+| |W |X |Y |Z
+|States | | | |
+|CA |-0.469724 |0.443672 |-1.009412 |0.118840
+|NY |0.152000 |-1.015101 |0.292788 |-0.179682
+|WR |-0.650724 |0.098453 |-2.513389 |-0.636284
+|OR |2.248024 |0.481968 |-0.944033 |-0.107866
+|CO |-0.590276 |0.964199 |-0.248336 |0.777561
+|===
+----
+
+
++*In[12]:*+
+[source, ipython3]
+----
+#Index levels
+----
+
+
++*In[23]:*+
+[source, ipython3]
+----
+outside = ['G1','G1','G1','G2','G2','G2']
+inside =[1,2,3,1,2,3]
+hier_index=list(zip(outside,inside))
+hier_index=pd.MultiIndex.from_tuples(hier_index)
+----
+
+
++*In[24]:*+
+[source, ipython3]
+----
+outside
+----
+
+
++*Out[24]:*+
+----['G1', 'G1', 'G1', 'G2', 'G2', 'G2']----
+
+
++*In[25]:*+
+[source, ipython3]
+----
+inside
+----
+
+
++*Out[25]:*+
+----[1, 2, 3, 1, 2, 3]----
+
+
++*In[26]:*+
+[source, ipython3]
+----
+list(zip(outside,inside))
+----
+
+
++*Out[26]:*+
+----[('G1', 1), ('G1', 2), ('G1', 3), ('G2', 1), ('G2', 2), ('G2', 3)]----
+
+
++*In[27]:*+
+[source, ipython3]
+----
+hier_index
+----
+
+
++*Out[27]:*+
+----MultiIndex([('G1', 1),
+            ('G1', 2),
+            ('G1', 3),
+            ('G2', 1),
+            ('G2', 2),
+            ('G2', 3)],
+           )----
+
+
++*In[21]:*+
+[source, ipython3]
+----
+df=pd.DataFrame(randn(6,2),hier_index,['A','B'])
+----
+
+
++*In[22]:*+
+[source, ipython3]
+----
+df
+----
+
+
++*Out[22]:*+
+----
+[cols=",,,",options="header",]
+|===
+| | |A |B
+|G1 |1 |-0.281696 |-0.048233
+| |2 |0.709150 |-0.702492
+| |3 |-1.534195 |-0.088502
+|G2 |1 |0.871283 |-1.122875
+| |2 |-0.838875 |-0.007073
+| |3 |-0.924876 |-0.509193
+|===
+----
+
+
++*In[30]:*+
+[source, ipython3]
+----
+df.index.names['Groups','Number']
+----
+
+
++*Out[30]:*+
+----
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    <ipython-input-30-6804b513d92d> in <module>
+    ----> 1 df.index.names['Groups','Number']
+    
+
+    ~/miniconda3/lib/python3.8/site-packages/pandas/core/indexes/frozen.py in __getitem__(self, n)
+         67         if isinstance(n, slice):
+         68             return type(self)(super().__getitem__(n))
+    ---> 69         return super().__getitem__(n)
+         70 
+         71     def __radd__(self, other):
+
+
+    TypeError: list indices must be integers or slices, not tuple
+
+----
+
+
++*In[31]:*+
+[source, ipython3]
+----
+df
+----
+
+
++*Out[31]:*+
+----
+[cols=",,,",options="header",]
+|===
+| | |A |B
+|G1 |1 |-0.281696 |-0.048233
+| |2 |0.709150 |-0.702492
+| |3 |-1.534195 |-0.088502
+|G2 |1 |0.871283 |-1.122875
+| |2 |-0.838875 |-0.007073
+| |3 |-0.924876 |-0.509193
+|===
+----
+
+
++*In[32]:*+
+[source, ipython3]
+----
+df.loc['G1']  
+----
+
+
++*Out[32]:*+
+----
+[cols=",,",options="header",]
+|===
+| |A |B
+|1 |-0.281696 |-0.048233
+|2 |0.709150 |-0.702492
+|3 |-1.534195 |-0.088502
+|===
+----
+
+
++*In[40]:*+
+[source, ipython3]
+----
+df.loc['G1'].loc[1]['B']
+----
+
+
++*Out[40]:*+
+-----0.04823307471528516----
+
+
++*In[36]:*+
+[source, ipython3]
+----
+df.loc['G2'].loc[3]['B']
+----
+
+
++*Out[36]:*+
+-----0.5091927179301485----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
